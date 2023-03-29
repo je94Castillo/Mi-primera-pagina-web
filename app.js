@@ -36,7 +36,7 @@ loadMoreBtn.onclick = ()=>{
 const carrito = document.getElementById('carrito');
 const elementos1 = document.getElementById('lista-1');
 const lista = document.querySelector('#lista-carrito tbody');
-const vaciarCarritoBtn = document.getElementById('vaciar-carrito1');
+const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 
 cargarEventListeners();
 
@@ -49,7 +49,7 @@ function cargarEventListeners(){
 function comprarElemento(e){
     e.prevetnDefault();
 
-    if(e.target.classList.contains('agregar-carrito btn-3')){
+    if(e.target.classList.contains('agregar-carrito')){
         const elemento = e.target.parentElement.parentElement;
         leerDatosElemento(elemento);
     }
@@ -70,7 +70,7 @@ function insertarCarrito(elemento){
     row.innerHTML =`
     
         <td>
-            <img src = "${elemento.imagen}" width=100 />
+            <img src = "${infolemento.imagen}" width=100 />
         </td>
 
         <td>
