@@ -24,7 +24,7 @@ body {
 
 .container {
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 .header {
@@ -60,8 +60,8 @@ body {
 .menu .navbar ul li a {
   font-size: 25px;
   padding: 20px;
-  font-weight: 200;
-  color: black;
+  font-weight: 600;
+  color: #1d1d1b;
   display: block;
 }
 
@@ -107,8 +107,7 @@ table {
   width: 100%;
 }
 
-th,
-td {
+th,td {
   color: #FFFFFF;
 }
 

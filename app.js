@@ -37,6 +37,7 @@ const carrito = document.getElementById('carrito');
 const elementos1 = document.getElementById('lista-1');
 const lista = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+const comprarcarrito = document.getElementById('comprar-carrito');
 
 cargarEventListeners();
 
@@ -44,10 +45,11 @@ function cargarEventListeners(){
     elementos1.addEventListener('click', comprarElemento);
     carrito.addEventListener('click', eliminarElemento);
     vaciarCarritoBtn.addEventListener('click', vaciarcarrito);
+    comprarcarrito = addEventListener('click', comprarcarrito1);
 }
 
 function comprarElemento(e){
-    e.prevetnDefault();
+    e.preventDefault();
 
     if(e.target.classList.contains('agregar-carrito')){
         const elemento = e.target.parentElement.parentElement;
@@ -60,17 +62,20 @@ function leerDatosElemento(elemento){
         imagen: elemento.querySelector('img').src,
         titulo: elemento.querySelector('h3').textContent,
         precio: elemento.querySelector('.precio').textContent,
+        cantidad: 1,
         id: elemento.querySelector('a').getAttribute('data-id')
     }
+
     insertarCarrito(infoElemento)
 }
+ 
 
 function insertarCarrito(elemento){
-    const row = document.createElemento('tr');
-    row.innerHTML =`
+    const row = document.createElement("tr");
+    row.innerHTML = `
     
         <td>
-            <img src = "${infolemento.imagen}" width=100 />
+            <img src = "${elemento.imagen}" width = 50 />
         </td>
 
         <td>
@@ -80,18 +85,22 @@ function insertarCarrito(elemento){
         <td>
            ${elemento.precio}
         </td>
+        
+        <td>
+           ${elemento.cantidad}
+        </td>
 
         <td>
             <a href="#" class = "borrar" data-id = "${elemento.id}" > X </a>
         </td>
     `;
-    
-    
+
     lista.appendChild(row);
 }
 
+
 function eliminarElemento(e){
-    e.prevetnDefault();
+    e.preventDefault();
     let elemento,
         elementoId;
 
